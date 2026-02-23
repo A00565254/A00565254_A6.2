@@ -3,7 +3,7 @@ A00565254
 Guillermo Contreras Pedroza
 Sistema de Gestión de Hoteles
 Este módulo permite administrar Hoteles, Clientes y Reservaciones
-con persistencia en archivos JSON. 
+con persistencia en archivos JSON.
 """
 
 import json
@@ -28,6 +28,7 @@ class Hotel:
         """Representación en texto del hotel."""
         return f"Hotel {self.name} ({self.location})"
 
+
 class Customer:
     """Representa un Cliente en el sistema."""
 
@@ -44,6 +45,7 @@ class Customer:
         """Representación en texto del Cliente o Customer."""
         return f"Customer {self.name} ({self.email})"
 
+
 class Reservation:
     """Representa una Reservación vinculando Cliente y Hotel."""
 
@@ -58,7 +60,7 @@ class Reservation:
 
     def __str__(self):
         """Representación en texto de la reservación"""
-        return f"Reservación {self.reservation_id} ({self.customer_id, self.hotel_id})"
+        return f"Res {self.reservation_id} ({self.customer_id, self.hotel_id})"
 
 
 class HotelManager:
@@ -160,7 +162,8 @@ class HotelManager:
             self._save_file('customers', customers)
             print(f"Cliente {customer_id} actualizado exitosamente.")
         else:
-            print(f"Error: No se pudo modificar. Cliente {customer_id} no encontrado.")
+            print(f"""Error: No se pudo modificar.
+            Cliente {customer_id} no encontrado.""")
 
     # --- Métodos de Reservación ---
     def create_reservation(self, r_id, c_id, h_id):
