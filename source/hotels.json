@@ -1,0 +1,16 @@
+{
+    "H2": {
+        "hotel_id": "H2",
+        "name": "Hotel Resiliente",
+        "location": "Narnia",
+        "total_rooms": 5,
+        "rooms_available": 5
+    },
+    "H3": {
+        "hotel_id": "H3",
+        "name": "Hotel Playa",
+        "location": "Canc\u00fan",
+        "total_rooms": 50,
+        "rooms_available": 49
+    }
+}
