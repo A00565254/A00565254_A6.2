@@ -1,7 +1,9 @@
 """
+A00565254
+Guillermo Contreras Pedroza
 Sistema de Gestión de Hoteles
 Este módulo permite administrar Hoteles, Clientes y Reservaciones
-con persistencia en archivos JSON.
+con persistencia en archivos JSON. 
 """
 
 import json
@@ -22,6 +24,9 @@ class Hotel:
         """Convierte la instancia a diccionario para JSON."""
         return self.__dict__
 
+    def __str__(self):
+        """Representación en texto del hotel."""
+        return f"Hotel {self.name} ({self.location})"
 
 class Customer:
     """Representa un Cliente en el sistema."""
@@ -35,6 +40,9 @@ class Customer:
         """Convierte la instancia a diccionario para JSON."""
         return self.__dict__
 
+    def __str__(self):
+        """Representación en texto del Cliente o Customer."""
+        return f"Customer {self.name} ({self.email})"
 
 class Reservation:
     """Representa una Reservación vinculando Cliente y Hotel."""
@@ -47,6 +55,10 @@ class Reservation:
     def to_dict(self):
         """Convierte la instancia a diccionario para JSON."""
         return self.__dict__
+
+    def __str__(self):
+        """Representación en texto de la reservación"""
+        return f"Reservación {self.reservation_id} ({self.customer_id, self.hotel_id})"
 
 
 class HotelManager:
@@ -118,7 +130,7 @@ class HotelManager:
         customers = self._load_file('customers')
         if customers.pop(c_id, None):
             self._save_file('customers', customers)
-            
+
     def display_customer(self, customer_id):
         """
         Muestra la información de un cliente específico.
@@ -144,7 +156,7 @@ class HotelManager:
             for key, value in kwargs.items():
                 if key in customers[customer_id]:
                     customers[customer_id][key] = value
-            
+
             self._save_file('customers', customers)
             print(f"Cliente {customer_id} actualizado exitosamente.")
         else:
