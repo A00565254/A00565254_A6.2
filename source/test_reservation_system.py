@@ -71,7 +71,7 @@ class TestHotelManager(unittest.TestCase):
         self.assertNotIn("R1", res_data)
 
     def test_invalid_file_handling(self):
-        """Prueba el Req 3: Manejo de archivos corruptos."""
+        """Manejo de archivos corruptos."""
         # Creamos un archivo con JSON inválido
         with open("hotels.json", "w", encoding="utf-8") as f:
             f.write("{ invalid json ...")
